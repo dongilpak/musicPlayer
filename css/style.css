@@ -76,6 +76,7 @@ section.main {
     left: 50%;
     margin-top: -25vh;
     margin-left: -10vw;
+    transition: 1s;
 }
 
 .main article {
@@ -187,10 +188,13 @@ section.main {
 }
 
 .main article .inner .txt .control li {
-    cursor: pointer;
     opacity: 0.6;
     transition: 0.5s;
     font-size: 1.6rem;
+}
+
+.main article.on .inner .txt .control li {
+    cursor: pointer;
 }
 
 .main article .inner .txt .control li.play {
@@ -198,12 +202,12 @@ section.main {
     opacity: 0.9;
 }
 
-.main article .inner .txt .control li:hover {
+.main article.on .inner .txt .control li:hover {
     opacity: 0.8;
     transform: scale(1.5);
 }
 
-.main article .inner .txt .control li.play:hover {
+.main article.on .inner .txt .control li.play:hover {
     transform: scale(2);
     opacity: 1;
 }
@@ -225,4 +229,129 @@ section.main {
     100% {
         transform: rotate(360deg) translateY(10%);
     }
+}
+
+/* Button */
+figure .btnPrev {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20vw, -50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+figure .btnPrev span {
+    font: 1.1rem/1 'arial';
+    color: #fff;
+    opacity: 1;
+    transform: translateX(30%);
+    transition: 0.5s;
+}
+
+figure .btnPrev::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: left center;
+    transform: rotate(-180deg);
+    transition: 0.5s;
+}
+
+figure .btnPrev::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: left center;
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+
+figure .btnPrev:hover span {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+figure .btnPrev:hover::before {
+    transform: rotate(-30deg);
+}
+
+figure .btnPrev:hover::after {
+    transform: rotate(30deg);
+}
+
+figure .btnNext {
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(20vw, -50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+figure .btnNext span {
+    font: 1.1rem/1 'arial';
+    color: #fff;
+    opacity: 1;
+    transform: translateX(-30%);
+    transition: 0.5s;
+}
+
+figure .btnNext::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: right center;
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+
+figure .btnNext::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: right center;
+    transform: rotate(-180deg);
+    transition: 0.5s;
+}
+
+figure .btnNext:hover span {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+figure .btnNext:hover::before {
+    transform: rotate(30deg);
+}
+
+figure .btnNext:hover::after {
+    transform: rotate(-30deg);
 }
